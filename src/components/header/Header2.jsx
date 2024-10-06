@@ -38,6 +38,10 @@ const Search = styled("div")(({ theme }) => ({
     width: "150px",
     marginLeft: theme.spacing(2),
   },
+  [theme.breakpoints.up("xs")]: {
+    width: "105px",
+    marginLeft: theme.spacing(2),
+  },
 }));
 
 const SearchIconWrapper = styled("div")(({ theme }) => ({
@@ -62,6 +66,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     [theme.breakpoints.up("md")]: {
       width: "20ch",
     },
+    
   },
 }));
 
@@ -96,8 +101,23 @@ const Header2 = () => {
   return (
     <Container sx={{ my: 3, display: "flex", justifyContent: "space-between" }}>
       <Stack alignItems={"center"}>
-        <ShoppingCartOutlined />
-        <Typography variant="body2">E-commerce</Typography>
+        <ShoppingCartOutlined
+          sx={{
+            [theme.breakpoints.down("sm")]: {
+              fontSize: "18px",
+            },
+          }}
+        />
+        <Typography
+          variant="body2"
+          sx={{
+            [theme.breakpoints.down("sm")]: {
+              fontSize: "12px",
+            },
+          }}
+        >
+          E-commerce
+        </Typography>
       </Stack>
 
       <Search
@@ -133,6 +153,9 @@ const Header2 = () => {
               borderBottomRightRadius: 22,
               borderTopRightRadius: 22,
               p: "0",
+              [theme.breakpoints.down("sm")]: {
+                display: "none",
+              },
             }}
           >
             <ListItem
@@ -158,8 +181,11 @@ const Header2 = () => {
                 sx={{
                   fontSize: "16px",
                   "&:hover": { cursor: "pointer" },
+                  // [theme.breakpoints.down("sm")]: {
+                  //   fontSize: "26px",
+                  // },
                   [theme.breakpoints.down("sm")]: {
-                    fontSize: "26px",
+                    display: "none",
                   },
                 }}
               />
